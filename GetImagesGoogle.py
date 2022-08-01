@@ -11,6 +11,13 @@ print("What do you want to download?")
 download = input()
 site = 'https://www.google.com/search?tbm=isch&q='+download
 
+# Create a directory with the name of download variable
+cwd = os.getcwd()
+dir_path = os.path.join(cwd,download)
+if not os.path.exists(dir_path):
+    os.mkdir(download)
+os.chdir(dir_path)
+
 
 #providing driver path
 driver = webdriver.Firefox(executable_path = r'C:\Users\Comercial\Downloads\geckodriver-v0.31.0-win64\geckodriver.exe')
