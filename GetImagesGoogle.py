@@ -1,9 +1,8 @@
 
 from bs4 import BeautifulSoup
 import urllib.request
-import time
-import sys
 import os
+import time
 from selenium import webdriver
 
 #taking user input
@@ -20,7 +19,7 @@ os.chdir(dir_path)
 
 
 #providing driver path
-driver = webdriver.Firefox(executable_path = r'C:\Users\Comercial\Downloads\geckodriver-v0.31.0-win64\geckodriver.exe')
+driver = webdriver.Chrome(executable_path = r'C:\Users\danie\OneDrive\Escritorio\SeleniumDriver\chromedriver.exe')
 
 #passing site url
 driver.get(site)
