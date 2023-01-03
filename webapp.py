@@ -18,17 +18,28 @@ def load_image(img_path):
 model = load_model('Models\model_transfer_learning\model_transfer_learning.h5')
 class_names = ['Bathroom', 'Bedroom', 'House Map', 'Kitchen', 'Living Room']
 
-st.title("Room Classifier")
+st.title("Place your real estate ad")
 
-image_uploaded = st.file_uploader("Upload your room image",type=["jpg","png"])
-if image_uploaded is not None:
-    st.image(image_uploaded)
+operation = st.radio("Operation:",["Rent","Sale"])
 
-if st.button("Predict"):
-    if image_uploaded is not None:
-       img_tensor = load_image(image_uploaded)
-       prediction =  model.predict(img_tensor)
-       st.write(class_names[np.argmax(prediction)])
+price = st.number_input("Price",min_value=0,step=50)
+
+city =  st.text_input("City")
+
+road_name =  st.text_input("Road name")
+
+images_uploaded = st.file_uploader("Upload your Images here",type=["jpg","png"],accept_multiple_files=True,)
+if images_uploaded is not None:
+    st.image(images_uploaded)
+
+if st.button("Create your ad"):
+    if images_uploaded is not None:
+        predictions = []
+        for image in images_uploaded:
+            img_tensor = load_image(image)
+            prediction =  model.predict(img_tensor)
+            predictions.append(class_names[np.argmax(prediction)])
+        st.write(predictions)
     else:
         st.warning("Upload a photo before making predictions")
        

@@ -1,8 +1,8 @@
-from tensorflow.keras.applications import VGG16
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.layers import Dense, Dropout, Flatten
-from tensorflow.keras.optimizers import SGD
-from tensorflow.keras.models import Model
+from keras.applications import VGG16
+from keras.preprocessing.image import ImageDataGenerator
+from keras.layers import Dense, Dropout, Flatten
+from keras.optimizers import SGD
+from keras.models import Model
 
 # Cargar el modelo preentrenado
 base_model = VGG16(weights='imagenet', include_top=False, input_shape=(224,224,3))
