@@ -12,7 +12,7 @@ epochs = 50
 batch_size = 32 
 
 # Cargar el modelo preentrenado
-base_model = InceptionV3(weights='imagenet', include_top=False, input_shape=(224,224,3))
+base_model = VGG16(weights='imagenet', include_top=False, input_shape=(224,224,3))
 
 # Congelar las capas del modelo
 for layer in base_model.layers:
@@ -89,6 +89,7 @@ history = model.fit(
 
 # Guardar el modelo entrenado
 model.save('fine_tuned_model.h5')
+model.evaluate_generator()
 
 #Con SGD 0btengo 0.8892 de accuracy (lr=0.0001, momentum=0.9) en el fine tuning y SGD(lr=0.001, momentum=0.9) en el transfer learning
 #Con Adam obtengo 0.9002 con un learning rate = 0.0005 en el fine tuning
