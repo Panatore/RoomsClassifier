@@ -1,3 +1,6 @@
 /env
 test.py
 /data
+data.zip
+fine_tuned_model.h5
+test.py
