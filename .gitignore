@@ -4,3 +4,8 @@ test.py
 data.zip
 fine_tuned_model.h5
 test.py
+/Website
+/Models
+/__pycache__
+/.ipnyb_checkpoints
+/.vscode
