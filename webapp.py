@@ -13,42 +13,58 @@ def load_image(img_path):
 
     return img_tensor
 
-#Create a function to load the model of the classifier and store in the picle memory
-# @st.experimental_singleton
-# def load_model():
-#     model = load_model('Models\model_transfer_learning\model_transfer_learning.h5')
-#     return model
-model = load_model('Models\model_transfer_learning\model_transfer_learning.h5')
 
-
-# model = load_model(r"C:\Users\danie\Documentos\GitHub\RoomsClassifier\Models\model_transfer_learning\saved_model.pb")
 #Load the model and the name of the classes
 model = load_model('Models\model_transfer_learning\model_transfer_learning.h5')
 class_names = ['Bathroom', 'Bedroom', 'House Map', 'Kitchen', 'Living Room']
-#Create this varibale in case the add is create
+#Create this variable in case the add is create
 
 
 # Create a sidebar menú
 pages = st.sidebar.selectbox("Selecciona el menú", ["Create your ad", "Your ad"])
 if pages == "Create your ad":
-    #Create this variable in case the add is created
-    add_created = False
     st.title("Place your real estate ad")
-    
-    operation = st.radio("Operation:",["Rent","Sale"])
+    #Check if the add is created
+    if 'add_created' not in st.session_state:
+        operation = st.radio("Operation:",["Rent","Sale"])
 
-    price = st.number_input("Price",min_value=0,step=50)
+        price = st.number_input("Price",min_value=0,step=50)
+        
+        city =  st.text_input("City")
 
-    city =  st.text_input("City")
+        road_name =  st.text_input("Road name")
 
-    road_name =  st.text_input("Road name")
+        description = st.text_area("Description: ",height=150, max_chars= 500)
 
-    description = st.text_area("Description: ",height=150, max_chars= 500)
+        images_uploaded = st.file_uploader("Upload your Images here",type=["jpg","png","jpeg"],accept_multiple_files=True)
+        #If there is images show them
+        if images_uploaded is not None:
+            st.image(images_uploaded)
+    #If the add is created show the default the data saved and you have the option to change it
+    else:
+        if st.session_state['operation'] == 'Rent':
+            operation = st.radio("Operation:",["Rent","Sale"],index=0)
+        else:
+            operation = st.radio("Operation:",["Rent","Sale"],index=1)
 
-    images_uploaded = st.file_uploader("Upload your Images here",type=["jpg","png","jpeg"],accept_multiple_files=True,)
-    #If there is images show them
-    if images_uploaded is not None:
-        st.image(images_uploaded)
+        price = st.number_input("Price",min_value=0,step=50,value = st.session_state['price'])
+
+        city =  st.text_input("City",value= st.session_state['city'])
+
+        road_name =  st.text_input("Road name",value= st.session_state['road_name'])
+
+        description = st.text_area("Description: ",height=150, max_chars= 500, value= st.session_state['description'])
+
+        new_images_uploaded = st.file_uploader("Upload your Images here",type=["jpg","png","jpeg"],accept_multiple_files=True)
+        #If there is images show them
+        if new_images_uploaded is not None:
+            images_uploaded = new_images_uploaded
+            st.image(images_uploaded)
+        else:
+            images_uploaded = st.session_state['images_uploaded']
+            st.image(images_uploaded)
+        
+
     #If all fields are fullfil create the add and make the predictions
     if st.button("Create your add or update it"):
         if images_uploaded is not None and price is not None and city is not None and road_name is not None and description is not None:
@@ -67,22 +83,34 @@ if pages == "Create your ad":
             st.session_state['road_name'] = road_name
             st.session_state['description'] = description
             st.session_state['predictions'] = predictions
-            st.session_state['images_upload'] = images_uploaded
+            st.session_state['images_uploaded'] = images_uploaded
             st.session_state['add_created'] = add_created
         else:
             st.warning("Fill in all the fields in order to create your advertisement.")
 
 elif pages == "Your ad":
-    if st.session_state['add_created']  == True:
+    if 'add_created' in st.session_state:
         operation = st.session_state['operation']
         price = st.session_state['price'] 
         city = st.session_state['city']
         road_name = st.session_state['road_name']
         description = st.session_state['description'] 
         predictions = st.session_state['predictions'] 
-        images_upload = st.session_state['images_upload']
+        images_uploaded = st.session_state['images_uploaded']
         st.header(f"{operation} a real state in {city}, {road_name}")
         st.subheader(description)
+        bathroom_idx = [index for (index, item) in enumerate(predictions) if item == "Bathroom"]
+        bedroom_idx = [index for (index, item) in enumerate(predictions) if item == "Bedroom"]
+        housemap_idx = [index for (index, item) in enumerate(predictions) if item == "House Map"]
+        kitchen_idx = [index for (index, item) in enumerate(predictions) if item == "Kitchen"]
+        livingroom_idx = [index for (index, item) in enumerate(predictions) if item == "Living Room"]
+        BathroomTab, BedroomTab, HouseMapTab, KitchenTab, LivingRoomTab = st.tabs(class_names)
+        with BathroomTab:
+            if bathroom_idx:
+                st.image(images_uploaded[bathroom_idx])
+        with KitchenTab:
+            if kitchen_idx:
+                st.image(images_uploaded[kitchen_idx])
     else:
         st.info("You should create the add first")
     

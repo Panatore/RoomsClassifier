@@ -8,7 +8,6 @@ data_dir = "./data/Train/"
 width_shape = 224
 height_shape = 224
 num_classes = 5
-epochs = 50
 batch_size = 32 
 
 # Cargar el modelo preentrenado
