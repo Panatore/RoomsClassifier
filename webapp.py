@@ -90,6 +90,7 @@ if pages == "Create your ad":
 
 elif pages == "Your ad":
     if 'add_created' in st.session_state:
+        st.sidebar.write('This is your real state add')
         operation = st.session_state['operation']
         price = st.session_state['price'] 
         city = st.session_state['city']
@@ -98,7 +99,8 @@ elif pages == "Your ad":
         predictions = st.session_state['predictions'] 
         images_uploaded = st.session_state['images_uploaded']
         st.header(f"{operation} a real state in {city}, {road_name}")
-        st.subheader(description)
+        st.subheader(f"Price: {price} €")
+        #Get the indexes of each class predictions
         bathroom_idx = [index for (index, item) in enumerate(predictions) if item == "Bathroom"]
         bedroom_idx = [index for (index, item) in enumerate(predictions) if item == "Bedroom"]
         housemap_idx = [index for (index, item) in enumerate(predictions) if item == "House Map"]
@@ -107,10 +109,36 @@ elif pages == "Your ad":
         BathroomTab, BedroomTab, HouseMapTab, KitchenTab, LivingRoomTab = st.tabs(class_names)
         with BathroomTab:
             if bathroom_idx:
-                st.image(images_uploaded[bathroom_idx])
+                for index in bathroom_idx:
+                    st.image(images_uploaded[index],use_column_width='always')
+            else:
+                st.write("There is no image of the Bathroom")
+        with BedroomTab:
+            if bedroom_idx:
+                for index in bedroom_idx:
+                    st.image(images_uploaded[index],use_column_width='always')
+            else:
+                st.write("There is no images of the Bedroom")
+        with HouseMapTab:
+            if housemap_idx:
+                for index in housemap_idx:
+                    st.image(images_uploaded[index],use_column_width='always')
+            else:
+                st.write("There is no images of the House Map")   
         with KitchenTab:
             if kitchen_idx:
-                st.image(images_uploaded[kitchen_idx])
+                for index in kitchen_idx:
+                    st.image(images_uploaded[index],use_column_width='always')
+            else:
+                st.write("There is no images of the Kitchen")
+        with LivingRoomTab:
+            if livingroom_idx:
+                for index in livingroom_idx:
+                    st.image(images_uploaded[index],use_column_width='always')
+            else:
+                st.write("There is no images of the Living Room")
+        st.subheader("Description:")
+        st.write(description)
     else:
         st.info("You should create the add first")
     
