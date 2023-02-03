@@ -22,6 +22,15 @@ pip install -r requirements.txt
 ```bash
 conda create --name <env> --file requirements.txt
 ```
+## Download Data and Model
+
+Using this link you can download a zip with all the Data used for the creation of the model and the model [Link](https://drive.google.com/file/d/1SFCvdThvcgb6wxgsjVI5c56-OSBkQwtS/view?usp=share_link "Click here to Download").
+
+Once you have downloaded the zip folder you must unzip it in the same directory where the repository has been cloned. Using the next code.
+
+```bash
+unzip file.zip
+```
 
 ## Execute the webapp
 
