@@ -24,7 +24,7 @@ conda create --name <env> --file requirements.txt
 ```
 ## Download Data and Model
 
-Using these link you can download a zip with all the Data used for the creation of the model [Data](https://drive.google.com/file/d/1hXXvO09P8IV6dR8dquvwP1ACy4osZNat/view?usp=share_link "Click here to Download") and the model that you can use with Keras [Model](https://drive.google.com/file/d/1F4WHTeUOoD53BqTvAk0MqmFfq-_Jcidd/view?usp=share_link"Click here to Download").
+Using these link you can download a zip with all the Data used for the creation of the model [Data](https://drive.google.com/file/d/1hXXvO09P8IV6dR8dquvwP1ACy4osZNat/view?usp=share_link "Click here to Download") and the model that you can use with Keras [Model](https://drive.google.com/file/d/1F4WHTeUOoD53BqTvAk0MqmFfq-_Jcidd/view?usp=share_link "Click here to Download").
 
 Once you have downloaded the zip folder you must unzip it in the same directory where the repository has been cloned. Using the next code.
 
