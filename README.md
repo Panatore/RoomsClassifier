@@ -1,6 +1,12 @@
-# RoomsClassifier
+% RoomsClassifier
 
 *Room Classifier* is a machine learning system that is used to identify and categorize images of different rooms. This system is built using TensorFlow, a popular open-source software library for machine learning. The primary goal of this classifier is to accurately recognize different types of rooms based on their visual characteristics, such as furniture, flooring, and wall colors.
+
+In the methodology for this room image classifier project, we initially utilized a Convolutional Neural Network (CNN) to classify the images. However, upon obtaining an accuracy of 70%, we decided to implement additional machine learning techniques and statistical methodologies to improve the performance of the model.
+
+To achieve this, we utilized Image Data Generator and Transfer Learning techniques. The Image Data Generator was used to augment the data by applying various transformations, such as rotation and scaling, to the images to increase the diversity of the data and reduce overfitting. Transfer learning allowed us to take the pre-trained weights of a larger model and fine-tune them on our smaller dataset. This allowed us to leverage the knowledge of the pre-trained model, while also making the most of our smaller dataset.
+
+These techniques, when combined with the original CNN model, resulted in a significant improvement in accuracy, as well as a more robust and generalizable model, obtaining an accuracy of over 90%. The methodology and results of these techniques are described in detail in the code notebooks, available in the repository.
 
 
 ![CNN](https://user-images.githubusercontent.com/97985464/214332583-2642de92-8539-4824-80d4-9aacf175dad0.jpg)
