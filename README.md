@@ -102,3 +102,15 @@ The architecture of the webapp comprises a two-page interface, where the first p
 
 The second page of the webapp serves as the display platform for the created advertisement. Once the advertisement has been created, it is promptly displayed on this page, showcasing all the information and images provided by the user in an organized and visually appealing manner. The display page serves as the main platform for potential buyers to interact with the advertisement and gain a comprehensive understanding of the property being offered for sale.
 
+## Future Enhancements
+Although the room classifier and the webapp provide a useful solution for creating real estate advertisements, there is always room for improvement. Here are a few potential enhancements that could be made in the future:
+
+Integration with other real estate platforms: Integrating the room classifier and the webapp with other real estate platforms will increase its visibility and reach, making it easier for potential buyers to access and view the advertisements.
+
+Adding more room categories: Currently, the room classifier supports a limited number of room categories. Adding more room categories will increase its accuracy and provide a more comprehensive labeling system.
+
+Improving the user interface: Enhancing the user interface of the webapp will make the creation and display of advertisements even more user-friendly and visually appealing.
+
+Adding more features: Adding features such as virtual tours, property videos, and more will provide potential buyers with a more immersive experience and a better understanding of the property being offered for sale.
+
+These are just a few examples of the potential enhancements that could be made in the future. The goal of the room classifier and the webapp is to simplify the process of advertising real estate properties and make it more efficient and user-friendly. By continuously improving and adding new features, we aim to achieve this goal and provide the best possible solution for our users.
