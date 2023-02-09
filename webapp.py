@@ -15,7 +15,7 @@ def load_image(img_path):
 
 
 #Load the model and the name of the classes
-model = load_model('Models\model_transfer_learning\model_transfer_learning.h5')
+model = load_model('Models/vgg_model.h5')
 class_names = ['Bathroom', 'Bedroom', 'House Map', 'Kitchen', 'Living Room']
 #Create this variable in case the add is create
 
@@ -73,8 +73,7 @@ if pages == "Create your ad":
             for image in images_uploaded:
                 img_tensor = load_image(image)
                 prediction =  model.predict(img_tensor)
-                predictions.append(class_names[np.argmax(prediction)])
-            st.write(predictions)
+            predictions.append(class_names[np.argmax(prediction)]) 
 
             #Declare the variable in the session state to not lose after change to the other page
             st.session_state['operation'] = operation
