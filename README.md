@@ -31,13 +31,13 @@ You can choose to create a virtual environment using either conda or virtualenv.
 ```bash
 conda create --name myenv python=3.9
 ```
-3. Replace myenv with the name you want to give to your virtual environment.
+Replace myenv with the name you want to give to your virtual environment.
 
 4. Activate the virtual environment by running the following command:
 ```bash
 conda activate myenv
 ```
-Verify that the virtual environment is activated by checking the command prompt. It should display the name of the virtual environment in brackets at the beginning of the line.
+4. Verify that the virtual environment is activated by checking the command prompt. It should display the name of the virtual environment in brackets at the beginning of the line.
 #### Using virtualenv
 1. Open your terminal or command prompt.
 2. Navigate to your project's directory using the cd command.
