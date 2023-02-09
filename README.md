@@ -65,7 +65,7 @@ git clone https://github.com/Panatore/RoomsClassifier
 ```
 2. Navigate to the project directory:
 ```bash
-cd your-project-directory
+cd RoomsClassifier
 ```
 3. Install the dependencies:
 ```bash
