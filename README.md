@@ -61,7 +61,7 @@ Once you have activated your virtual environment, you can install the project an
 
 1. Clone the project repository:
 ```bash
-git clone https://github.com/your-repo-link
+git clone https://github.com/Panatore/RoomsClassifier
 ```
 2. Navigate to the project directory:
 ```bash
