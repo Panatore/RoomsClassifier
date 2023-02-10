@@ -24,6 +24,8 @@ This repository contains several files, each with its own specific purpose:
 
 5. `requirements.txt`: This file lists the required Python packages for running the code in this repository.
 
+6. `memoria.pdf` : This document is a description in detail of all project.
+
 By understanding the purpose and functionality of each file, users can easily navigate the repository and understand how to use the room classifier and the webapp.
 
 This project requires Python 3.9 to be installed on your system.
