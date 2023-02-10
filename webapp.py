@@ -80,7 +80,6 @@ if pages == "Create your ad":
                 img_tensor = load_image(image)
                 prediction =  model.predict(img_tensor)
                 predictions.append(class_names[np.argmax(prediction)]) 
-            st.write(predictions)
             #Declare the variable in the session state to not lose after change to the other page
             st.session_state['operation'] = operation
             st.session_state['price'] = price
