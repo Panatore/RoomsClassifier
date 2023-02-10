@@ -36,6 +36,12 @@ if pages == "Create your ad":
 
         description = st.text_area("Description: ",height=150, max_chars= 500)
 
+        num_bedrooms = st.number_input("Introduce the number of rooms",min_value=1,step=1)
+
+        num_bathrooms = st.number_input("Introduce the number of bathrooms",min_value=1,step=1)
+
+        surface_area = st.number_input("Surface area(m2): ",min_value=1,step=1)
+
         images_uploaded = st.file_uploader("Upload your Images here",type=["jpg","png","jpeg"],accept_multiple_files=True)
         #If there is images show them
         if images_uploaded is not None:
@@ -55,15 +61,15 @@ if pages == "Create your ad":
 
         description = st.text_area("Description: ",height=150, max_chars= 500, value= st.session_state['description'])
 
-        new_images_uploaded = st.file_uploader("Upload your Images here",type=["jpg","png","jpeg"],accept_multiple_files=True)
-        #If there is images show them
-        if new_images_uploaded is not None:
-            images_uploaded = new_images_uploaded
+        num_bedrooms = st.number_input("Introduce the number of rooms",value= st.session_state['num_bedrooms'],min_value=1,step=1)
+
+        num_bathrooms = st.number_input("Introduce the number of bathrooms",value= st.session_state['num_bathrooms'],min_value=1,step=1)
+
+        surface_area = st.number_input("Surface area(m2): ",value= st.session_state['surface_area'],min_value=1,step=1)
+
+        images_uploaded = st.file_uploader("Upload your Images here",type=["jpg","png","jpeg"],accept_multiple_files=True)
+        if images_uploaded is not None:
             st.image(images_uploaded)
-        else:
-            images_uploaded = st.session_state['images_uploaded']
-            st.image(images_uploaded)
-        
 
     #If all fields are fullfil create the add and make the predictions
     if st.button("Create your add or update it"):
@@ -73,8 +79,8 @@ if pages == "Create your ad":
             for image in images_uploaded:
                 img_tensor = load_image(image)
                 prediction =  model.predict(img_tensor)
-            predictions.append(class_names[np.argmax(prediction)]) 
-
+                predictions.append(class_names[np.argmax(prediction)]) 
+            st.write(predictions)
             #Declare the variable in the session state to not lose after change to the other page
             st.session_state['operation'] = operation
             st.session_state['price'] = price
@@ -83,6 +89,9 @@ if pages == "Create your ad":
             st.session_state['description'] = description
             st.session_state['predictions'] = predictions
             st.session_state['images_uploaded'] = images_uploaded
+            st.session_state['num_bedrooms'] = num_bedrooms
+            st.session_state['num_bathrooms'] = num_bathrooms
+            st.session_state['surface_area'] = surface_area
             st.session_state['add_created'] = add_created
         else:
             st.warning("Fill in all the fields in order to create your advertisement.")
@@ -97,6 +106,9 @@ elif pages == "Your ad":
         description = st.session_state['description'] 
         predictions = st.session_state['predictions'] 
         images_uploaded = st.session_state['images_uploaded']
+        num_bedrooms = st.session_state['num_bedrooms']
+        num_bathrooms = st.session_state['num_bathrooms']
+        surface_area = st.session_state['surface_area']
         st.header(f"{operation} a real state in {city}, {road_name}")
         st.subheader(f"Price: {price} €")
         #Get the indexes of each class predictions
@@ -138,6 +150,9 @@ elif pages == "Your ad":
                 st.write("There is no images of the Living Room")
         st.subheader("Description:")
         st.write(description)
+        st.subheader(f"Nº of bedrooms: {num_bedrooms}")
+        st.subheader(f"Nº of bathrooms: {num_bathrooms}")
+        st.subheader(f"Surface area: {surface_area}m2")
     else:
         st.info("You should create the add first")
     
