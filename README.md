@@ -11,6 +11,21 @@ These techniques, when combined with the original CNN model, resulted in a signi
 
 ![CNN](https://user-images.githubusercontent.com/97985464/214332583-2642de92-8539-4824-80d4-9aacf175dad0.jpg)
 
+## Repository Files
+This repository contains several files, each with its own specific purpose:
+
+1. `GetImagesGoogle.py`: This file allow us to download images from Google Images and save them to a new directory.
+
+2. `webapp.py`: This file contains the code for the Streamlit webapp that allows users to interact with the room classifier. It provides a two-page interface for creating and displaying real estate advertisements.
+
+3. `fine_tuning.py`: This file allow us to test different hyperpharameters from your transfer learning and fine tuning room classifier model.
+
+4. `TFM.ipynb`: This is the jupyter notebook where all the data exploration and models are created.
+
+5. `requirements.txt`: This file lists the required Python packages for running the code in this repository.
+
+By understanding the purpose and functionality of each file, users can easily navigate the repository and understand how to use the room classifier and the webapp.
+
 This project requires Python 3.9 to be installed on your system.
 
 ## Getting Started
