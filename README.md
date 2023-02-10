@@ -108,7 +108,7 @@ Expand-Archive .\Models.zip
 In case you want to deploy the Streamlit app,first you need to download the model following the instructions explained in the previous section (Download Data and Model) and then you will need to execute the next commnand while you are in the same directory where the file *webapp.py* is.
 
 ```bash
-python streamlit run webapp.py
+streamlit run webapp.py
 ```
 
 This webapp shows us how the user experience will improve using the room image classifier. The room image classifier makes the real estate advertisement creation process even more efficient and user-friendly. The classifier allows users to easily label each room in the property, providing a clear and organized way for potential buyers to view the layout of the property. The labeling process is quick and simple, and the classifier accurately identifies the different rooms in the property, reducing the need for manual input from the user. This feature enhances the visual appeal of the advertisement, making it easier for potential buyers to understand the property layout. The improved organization and visual appeal provided by the room image classifier increase the chances of attracting more potential buyers and ultimately lead to a successful sale. The addition of this feature further demonstrates the webapp's commitment to providing an enhanced user experience and making the process of advertising real estate properties easier and more efficient.
