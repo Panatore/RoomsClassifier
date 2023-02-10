@@ -11,6 +11,21 @@ These techniques, when combined with the original CNN model, resulted in a signi
 
 ![CNN](https://user-images.githubusercontent.com/97985464/214332583-2642de92-8539-4824-80d4-9aacf175dad0.jpg)
 
+## Repository Files
+This repository contains several files, each with its own specific purpose:
+
+1. `GetImagesGoogle.py`: This file allow us to download images from Google Images and save them to a new directory.
+
+2. `webapp.py`: This file contains the code for the Streamlit webapp that allows users to interact with the room classifier. It provides a two-page interface for creating and displaying real estate advertisements.
+
+3. `fine_tuning.py`: This file allow us to test different hyperpharameters from your transfer learning and fine tuning room classifier model.
+
+4. `TFM.ipynb`: This is the jupyter notebook where all the data exploration and models are created.
+
+5. `requirements.txt`: This file lists the required Python packages for running the code in this repository.
+
+By understanding the purpose and functionality of each file, users can easily navigate the repository and understand how to use the room classifier and the webapp.
+
 This project requires Python 3.9 to be installed on your system.
 
 ## Getting Started
@@ -93,7 +108,7 @@ Expand-Archive .\Models.zip
 In case you want to deploy the Streamlit app,first you need to download the model following the instructions explained in the previous section (Download Data and Model) and then you will need to execute the next commnand while you are in the same directory where the file *webapp.py* is.
 
 ```bash
-python streamlit run webapp.py
+streamlit run webapp.py
 ```
 
 This webapp shows us how the user experience will improve using the room image classifier. The room image classifier makes the real estate advertisement creation process even more efficient and user-friendly. The classifier allows users to easily label each room in the property, providing a clear and organized way for potential buyers to view the layout of the property. The labeling process is quick and simple, and the classifier accurately identifies the different rooms in the property, reducing the need for manual input from the user. This feature enhances the visual appeal of the advertisement, making it easier for potential buyers to understand the property layout. The improved organization and visual appeal provided by the room image classifier increase the chances of attracting more potential buyers and ultimately lead to a successful sale. The addition of this feature further demonstrates the webapp's commitment to providing an enhanced user experience and making the process of advertising real estate properties easier and more efficient.
@@ -101,6 +116,8 @@ This webapp shows us how the user experience will improve using the room image c
 The architecture of the webapp comprises a two-page interface, where the first page is dedicated to the creation of a real estate advertisement. The user is prompted to provide detailed information regarding the property, including its operational status, price, location, street address, and a comprehensive description. The user is also able to upload relevant images to accompany the advertisement, enhancing its visual appeal and providing potential buyers with a comprehensive understanding of the property.
 
 The second page of the webapp serves as the display platform for the created advertisement. Once the advertisement has been created, it is promptly displayed on this page, showcasing all the information and images provided by the user in an organized and visually appealing manner. The display page serves as the main platform for potential buyers to interact with the advertisement and gain a comprehensive understanding of the property being offered for sale.
+
+![Webapp](https://user-images.githubusercontent.com/97985464/218156404-9bd5c9c2-0594-482e-beb2-0268755b6c58.gif)
 
 ## Future Enhancements
 Although the room classifier and the webapp provide a useful solution for creating real estate advertisements, there is always room for improvement. Here are a few potential enhancements that could be made in the future:
