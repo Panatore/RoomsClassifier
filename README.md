@@ -117,7 +117,7 @@ The architecture of the webapp comprises a two-page interface, where the first p
 
 The second page of the webapp serves as the display platform for the created advertisement. Once the advertisement has been created, it is promptly displayed on this page, showcasing all the information and images provided by the user in an organized and visually appealing manner. The display page serves as the main platform for potential buyers to interact with the advertisement and gain a comprehensive understanding of the property being offered for sale.
 
-![Webapp](https://user-images.githubusercontent.com/97985464/214332583-2642de92-8539-4824-80d4-9aacf175dad0.jpg)
+![Webapp](https://user-images.githubusercontent.com/97985464/218156404-9bd5c9c2-0594-482e-beb2-0268755b6c58.gif)
 
 ## Future Enhancements
 Although the room classifier and the webapp provide a useful solution for creating real estate advertisements, there is always room for improvement. Here are a few potential enhancements that could be made in the future:
